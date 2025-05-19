@@ -1,2 +1,2 @@
 # fin_proj
-some ideas
+some ideas for my ideal financial tool
