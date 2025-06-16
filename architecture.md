@@ -34,7 +34,7 @@
 ### apps/mobile
 - Built with React Native (Expo)
 - Targets iOS (and optionally Android)
-- Uses `nativewind` for styling
+- Uses React Native's built-in StyleSheet for styling
 - UI toggles between "Easy" and "Pro" modes
 
 ### apps/web
@@ -45,6 +45,8 @@
 ### packages/ui
 - Shared UI components (inputs, cards, buttons, chart components)
 - Used by both mobile and web apps
+- Mobile components use React Native StyleSheet
+- Web components use CSS Modules
 
 ### packages/utils
 - Utility functions: currency format, date helpers, math helpers
