@@ -22,9 +22,9 @@ Each task is atomic, testable, and focused on one concern.
 
 ## 🖥 Web App Setup
 
-### 1.1 — Add Tailwind CSS to `apps/web`
-- **Start**: Install Tailwind, configure PostCSS
-- **End**: Can use Tailwind in components
+### 1.1 — Add CSS Modules to `apps/web`
+- **Start**: Configure CSS Modules
+- **End**: Can use CSS Modules in components
 
 ### 1.2 — Set up App Router and `/login` page
 - **Start**: Add route structure
@@ -34,9 +34,9 @@ Each task is atomic, testable, and focused on one concern.
 
 ## 📱 Mobile App Setup
 
-### 2.1 — Add `nativewind` and Tailwind config
-- **Start**: Install nativewind, link config
-- **End**: Styling with Tailwind works
+### 2.1 — Set up React Native styling system
+- **Start**: Create shared styles and theme constants
+- **End**: Consistent styling system in place
 
 ### 2.2 — Implement navigation (react-navigation)
 - **Start**: Install navigation libraries
@@ -133,3 +133,60 @@ Each task is atomic, testable, and focused on one concern.
 ### 8.4 — Publish Expo Dev build
 - **Start**: Run `expo publish`
 - **End**: Shareable link for testers
+
+## 👥 Parallel Development Guidelines
+
+### Branch Strategy
+- `main` - Production-ready code
+- `develop` - Integration branch for features
+- Feature branches: `feature/[developer-initials]/[task-number]-[short-description]`
+  Example: `feature/dn/2.1-styling-system`
+
+### Developer Responsibilities
+
+#### Developer 1 (DN - Mobile Focus)
+- Mobile app development (apps/mobile)
+- Mobile-specific UI components
+- Mobile authentication flow
+- Mobile-specific utilities
+
+#### Developer 2 (Web Focus)
+- Web app development (apps/web)
+- Web-specific UI components
+- Web authentication flow
+- Web-specific utilities
+
+#### Shared Responsibilities
+- Backend development (backend/)
+- Shared packages (packages/*)
+- Database schema and migrations (prisma/)
+- API endpoints and services
+
+### Development Workflow
+1. Create feature branch from `develop`
+2. Implement feature following task guidelines
+3. Write tests for new functionality
+4. Create PR to `develop`
+5. Code review by other developer
+6. Merge to `develop` after approval
+7. Regular merges from `develop` to `main` for releases
+
+### Communication Points
+- Daily sync on shared components
+- API contract reviews
+- Database schema changes
+- Shared package updates
+
+### Critical Paths
+1. Authentication system (must be completed first)
+2. Database schema and migrations
+3. Core shared packages
+4. API endpoints
+
+### Independent Development Areas
+- Mobile UI/UX (Developer 1)
+- Web UI/UX (Developer 2)
+- Mobile-specific features (Developer 1)
+- Web-specific features (Developer 2)
+- Mobile testing (Developer 1)
+- Web testing (Developer 2)
